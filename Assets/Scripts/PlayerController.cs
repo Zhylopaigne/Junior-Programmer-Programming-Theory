@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         
-        Vector3 inputDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+        Vector3 inputDirection = Quaternion.AngleAxis(45, Vector3.up) * new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
         playerRb.AddForce(inputDirection * speed, ForceMode.Force);
     }
